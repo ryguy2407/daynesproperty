@@ -9,7 +9,7 @@
     </div><!-- end feature -->
 
     <div class="searchForm container mx-auto">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-6 mb-10 flex">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-6 flex">
 
             <div class="inline-block relative w-64 flex-1 mr-4">
                 <select class="appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
@@ -38,5 +38,65 @@
             </button>
         </form>
     </div><!-- end search -->
+
+    <div class="listings container mx-auto">
+        <div class="flex -mx-6 flex-wrap">
+
+            <div class="w-1/3 px-4 listing">
+                <div class="blue">
+                    <a href="/listing/1">
+                        <img class="object-cover h-48 w-full" src="/images/listings/test.jpeg" alt="">
+                    </a>
+                    <h2 class="p-4 text-white text-lg">Modern Lifestyle</h2>
+                </div>
+                <div class="border border-top-0 border-gray-400 bg-white">
+                    <ul class="flex flex-wrap p-4 text-gray-600">
+                        <li class="w-1/2 mb-2">465 m2</li>
+                        <li class="w-1/2 mb-2">4 Bedrooms</li>
+                        <li class="w-1/2">2 Bathrooms</li>
+                    </ul>
+                    <hr class="my-0">
+                    <h2 class="p-4 text-gray-600 text-lg">$465,000</h2>
+                </div>
+            </div><!-- end listing -->
+
+            <div class="w-1/3 px-4 listing">
+                <div class="blue">
+                    <a href="/listing/1">
+                        <img class="object-cover h-48 w-full" src="/images/listings/test.jpeg" alt="">
+                    </a>
+                    <h2 class="p-4 text-white text-lg">Modern Lifestyle</h2>
+                </div>
+                <div class="border border-top-0 border-gray-400 bg-white">
+                    <ul class="flex flex-wrap p-4 text-gray-600">
+                        <li class="w-1/2 mb-2">465 m2</li>
+                        <li class="w-1/2 mb-2">4 Bedrooms</li>
+                        <li class="w-1/2">2 Bathrooms</li>
+                    </ul>
+                    <hr class="my-0">
+                    <h2 class="p-4 text-gray-600 text-lg">$465,000</h2>
+                </div>
+            </div><!-- end listing -->
+
+            <div class="w-1/3 px-4 listing">
+                <div class="blue">
+                    <a href="/listing/1">
+                        <img class="object-cover h-48 w-full" src="/images/listings/test.jpeg" alt="">
+                    </a>
+                    <h2 class="p-4 text-white text-lg">Modern Lifestyle</h2>
+                </div>
+                <div class="border border-top-0 border-gray-400 bg-white">
+                    <ul class="flex flex-wrap p-4 text-gray-600">
+                        <li class="w-1/2 mb-2">465 m2</li>
+                        <li class="w-1/2 mb-2">4 Bedrooms</li>
+                        <li class="w-1/2">2 Bathrooms</li>
+                    </ul>
+                    <hr class="my-0">
+                    <h2 class="p-4 text-gray-600 text-lg">$465,000</h2>
+                </div>
+            </div><!-- end listing -->
+
+        </div>
+    </div><!-- end listings -->
 
 @endsection

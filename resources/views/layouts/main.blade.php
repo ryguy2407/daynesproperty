@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="icon" href="/images/favicon.png">
 </head>
 <body>
 
@@ -23,7 +24,9 @@
     <nav class="main">
         <div class="container mx-auto">
             <div class="flex justify-between items-center py-4">
-                <img src="/images/logo@2x.png" class="object-scale-down" style="width: 20%;">
+                <a href="/">
+                    <img src="/images/logo@2x.png" class="object-scale-down" style="width: 50%;">
+                </a>
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Properties</a></li>
