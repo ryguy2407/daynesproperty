@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\RexRepository\CRMInterface;
 use Illuminate\Http\Request;
 
 class ListingsController extends Controller
@@ -40,12 +41,18 @@ class ListingsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
+     * @param CRMInterface $crm
+     *
      * @return \Illuminate\Http\Response
+     * @internal param CRMInterface $crm
+     *
+     * @internal param CRMInterface $rex
      */
-    public function show($id)
+    public function show($id, CRMInterface $crm)
     {
-        return view('listings.show');
+        return view('listings.show')->with('crm', $crm->getListing($id));
     }
 
     /**

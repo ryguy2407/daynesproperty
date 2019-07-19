@@ -14,6 +14,7 @@
             <li class="w-1/4">2 Garages</li>
         </ul>
         <div class="bg-white bg-white p-12 mt-10">
+            {{ $crm->price }}
             <h1 class="text-2xl mb-4">12 Gippsland Place, Calamvale</h1>
             <p class="text-base">
                 This welcoming and gracious family home promises the new lucky
