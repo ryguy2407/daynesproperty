@@ -2,9 +2,17 @@
 
 @section('content')
 
-    <div class="heroSlideshow container mx-auto mt-12 mb-10">
-        <img src="/images/listings/test-hero.jpeg" class="object-cover w-full" alt="" style="height: 600px;">
+    <div class="container mx-auto mt-12 mb-2">
+        <div class="heroSlideshow cycle-slideshow" data-cycle-pager=".pager" data-cycle-slides="> img">
+            <div class="slideshowOverlay">
+                <h1 class="text-5xl text-white">{{ $listing->title }}</h1>
+            </div>
+            @foreach($images as $image)
+                <img src="{{ $image->url }}" class="object-cover w-full" alt="" style="height: 600px;">
+            @endforeach
+        </div>
     </div>
+    <div class="pager cotnainer mx-auto text-center mb-10"></div>
 
     <div class="listingContent container mx-auto mb-20">
         <ul class="flex flex-wrap features">
@@ -14,27 +22,12 @@
             <li class="w-1/4">2 Garages</li>
         </ul>
         <div class="bg-white bg-white p-12 mt-10">
-            {{ $crm->price }}
-            <h1 class="text-2xl mb-4">12 Gippsland Place, Calamvale</h1>
-            <p class="text-base">
-                This welcoming and gracious family home promises the new lucky
-                owners the very best in convenience and lifestyle. Sweeping
-                lawns front the property which has been finished with a
-                neutral render and stylishly complemented by treated timber
-                accents, all giving this property great street appeal. What
-                cannot be seen from the outside, however, are the generously
-                proportioned internal paces with lofty ceilings and beautiful
-                finishes.
-            </p>
-            <ul class="text-base list-disc list-inside">
-                <li>List item one</li>
-                <li>List item one</li>
-                <li>List item one</li>
-            </ul>
+            <h1 class="text-2xl mb-4">{{ $listing->title }}</h1>
+            {!! nl2br(e($listing->description)) !!}
 
             <h1 class="text-2xl mb-4 bg-white mt-8">Location</h1>
             <hr>
-            <p id="address">12 Gippsland Place, Calamvale</p>
+            <p id="address">{{ $listing->address }}</p>
             <div id="map" class="mb-10"></div>
 
             <h1 class="text-2xl mb-4 bg-white mt-8">Agent</h1>

@@ -17,7 +17,10 @@ class CreateListingsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('address');
-            $table->bigInteger('price');
+            $table->string('price');
+            $table->longText('description');
+            $table->text('images');
+            $table->text('listing_state');
             $table->timestamps();
         });
     }

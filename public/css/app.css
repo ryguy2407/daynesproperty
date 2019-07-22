@@ -17934,6 +17934,33 @@ div.listingContent p, div.listingContent ul {
   margin-bottom: 20px;
 }
 
+div.pager span {
+  color: #00aeef;
+  font-size: 25px;
+  margin-right: 10px;
+  opacity: 0.5;
+}
+
+div.pager span.cycle-pager-active {
+  opacity: 1;
+}
+
+div.slideshowOverlay {
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 25px;
+  height: 100%;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+50 */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#a6000000", endColorstr="#00000000",GradientType=0 );
+  /* IE6-9 */
+}
+
 #map {
   width: 100%;
   height: 400px;

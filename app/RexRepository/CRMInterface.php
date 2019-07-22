@@ -5,7 +5,6 @@ namespace App\RexRepository;
 
 interface CRMInterface
 {
-	public function getAllListings();
-	public function getListing($id);
-	public function syncListings();
+	public function queryAPI();
+	public function syncAllListings();
 }

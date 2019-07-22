@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Listing;
+use App\RexRepository\CRMInterface;
 use Illuminate\Http\Request;
 
-class ListingsController extends Controller
+class CRMListingsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,47 +23,32 @@ class ListingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(CRMInterface $crm)
     {
-        //
+        $crm->syncAllListings();
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param $listing
+     * @param  \Illuminate\Http\Request $request
+     * @param CRMInterface $crm
      *
      * @return \Illuminate\Http\Response
      */
-    public function store($listing)
+    public function store(Request $request, CRMInterface $crm)
     {
-        Listing::create([
-            'title' => $listing->advert_internet->heading,
-            'address' => $listing->address->formats->full_address_w_building_name,
-            'price' => $listing->price_advertise_as,
-            'description' => $listing->advert_internet->body,
-            'images' => serialize($listing->images),
-            'listing_state' => $listing->system_listing_state
-        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
-     *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
-     * @internal param CRMInterface $crm
-     *
-     * @internal param CRMInterface $crm
-     *
-     * @internal param CRMInterface $rex
      */
     public function show($id)
     {
-        $listing = Listing::find($id);
-        $images = unserialize($listing->images);
-        return view('listings.show')->with('listing', $listing)->with('images', $images);
+        //
     }
 
     /**
