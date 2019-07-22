@@ -42,7 +42,8 @@ class ListingsController extends Controller
             'price' => $listing->price_advertise_as,
             'description' => $listing->advert_internet->body,
             'images' => serialize($listing->images),
-            'listing_state' => $listing->system_listing_state
+            'listing_state' => $listing->system_listing_state,
+            'attributes' => serialize($listing->attributes),
         ]);
     }
 

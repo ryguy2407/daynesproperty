@@ -20,7 +20,8 @@ class CreateListingsTable extends Migration
             $table->string('price');
             $table->longText('description');
             $table->text('images');
-            $table->text('listing_state');
+            $table->string('listing_state');
+            $table->text('attributes');
             $table->timestamps();
         });
     }

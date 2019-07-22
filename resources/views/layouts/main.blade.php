@@ -7,6 +7,7 @@
     <link rel="icon" href="/images/favicon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/malsup/cycle2/master/build/jquery.cycle2.min.js"></script>
+    <script src="https://kit.fontawesome.com/01abc77b8c.js"></script>
 </head>
 <body>
 

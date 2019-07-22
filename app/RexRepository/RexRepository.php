@@ -77,7 +77,6 @@ class RexRepository implements CRMInterface
 		$limit = 20;
 		$result = $this->queryAPI($offset)->result->rows;
 		$count = count($result);
-
 		// Keep running until all listings are saved into DB
 		if($count == $limit) {
 			$offset += $limit;

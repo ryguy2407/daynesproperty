@@ -13,4 +13,9 @@ class Listing extends Model
 	{
 		return unserialize($value);
 	}
+
+	public function getAttributesAttribute($value)
+	{
+		return unserialize($value);
+	}
 }

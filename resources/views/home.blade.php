@@ -52,9 +52,11 @@
                     </div>
                     <div class="border border-top-0 border-gray-400 bg-white">
                         <ul class="flex flex-wrap p-4 text-gray-600">
-                            <li class="w-1/2 mb-2">465 m2</li>
-                            <li class="w-1/2 mb-2">4 Bedrooms</li>
-                            <li class="w-1/2">2 Bathrooms</li>
+                            @if($listing->attributes->landarea)
+                                <li class="w-1/2 mb-2"><i class="fas fa-ruler-combined mr-2"></i>{{ $listing->attributes->landarea }} m2</li>
+                            @endif
+                            <li class="w-1/2 mb-2"><i class="fas fa-bed mr-2"></i>{{ $listing->attributes->bedrooms }} Bedrooms</li>
+                            <li class="w-1/2"><i class="fas fa-bath mr-2"></i>{{ $listing->attributes->bathrooms }} Bathrooms</li>
                         </ul>
                         <hr class="my-0">
                         <h2 class="p-4 text-gray-600 text-lg">{{ $listing->price }}</h2>

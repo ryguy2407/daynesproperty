@@ -16,10 +16,12 @@
 
     <div class="listingContent container mx-auto mb-20">
         <ul class="flex flex-wrap features">
-            <li class="w-1/4">456 m2</li>
-            <li class="w-1/4">4 Bedrooms</li>
-            <li class="w-1/4">2 Bathrooms</li>
-            <li class="w-1/4">2 Garages</li>
+            @if($listing->attributes->landarea)
+                <li class="w-1/4 text-lg"><i class="fas fa-ruler-combined mr-2"></i>{{ $listing->attributes->landarea }} m2</li>
+            @endif
+            <li class="w-1/4 text-lg"><i class="fas fa-bed mr-2"></i>{{ $listing->attributes->bedrooms }} Bedrooms</li>
+            <li class="w-1/4 text-lg"><i class="fas fa-bath mr-2"></i>{{ $listing->attributes->bathrooms }} Bathrooms</li>
+            <li class="w-1/4 text-lg"><i class="fas fa-car mr-2"></i>{{ $listing->attributes->garages }} Garages</li>
         </ul>
         <div class="bg-white bg-white p-12 mt-10">
             <h1 class="text-2xl mb-4">{{ $listing->title }}</h1>
