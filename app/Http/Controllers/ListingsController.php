@@ -61,8 +61,7 @@ class ListingsController extends Controller
     public function show($id)
     {
         $listing = Listing::find($id);
-        $images = unserialize($listing->images);
-        return view('listings.show')->with('listing', $listing)->with('images', $images);
+        return view('listings.show')->with('listing', $listing);
     }
 
     /**

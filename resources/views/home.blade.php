@@ -42,59 +42,25 @@
     <div class="listings container mx-auto">
         <div class="flex -mx-6 flex-wrap">
 
-            <div class="w-1/3 px-4 listing">
-                <div class="blue">
-                    <a href="/listing/1">
-                        <img class="object-cover h-48 w-full" src="/images/listings/test.jpeg" alt="">
-                    </a>
-                    <h2 class="p-4 text-white text-lg">Modern Lifestyle</h2>
-                </div>
-                <div class="border border-top-0 border-gray-400 bg-white">
-                    <ul class="flex flex-wrap p-4 text-gray-600">
-                        <li class="w-1/2 mb-2">465 m2</li>
-                        <li class="w-1/2 mb-2">4 Bedrooms</li>
-                        <li class="w-1/2">2 Bathrooms</li>
-                    </ul>
-                    <hr class="my-0">
-                    <h2 class="p-4 text-gray-600 text-lg">$465,000</h2>
-                </div>
-            </div><!-- end listing -->
-
-            <div class="w-1/3 px-4 listing">
-                <div class="blue">
-                    <a href="/listing/1">
-                        <img class="object-cover h-48 w-full" src="/images/listings/test.jpeg" alt="">
-                    </a>
-                    <h2 class="p-4 text-white text-lg">Modern Lifestyle</h2>
-                </div>
-                <div class="border border-top-0 border-gray-400 bg-white">
-                    <ul class="flex flex-wrap p-4 text-gray-600">
-                        <li class="w-1/2 mb-2">465 m2</li>
-                        <li class="w-1/2 mb-2">4 Bedrooms</li>
-                        <li class="w-1/2">2 Bathrooms</li>
-                    </ul>
-                    <hr class="my-0">
-                    <h2 class="p-4 text-gray-600 text-lg">$465,000</h2>
-                </div>
-            </div><!-- end listing -->
-
-            <div class="w-1/3 px-4 listing">
-                <div class="blue">
-                    <a href="/listing/1">
-                        <img class="object-cover h-48 w-full" src="/images/listings/test.jpeg" alt="">
-                    </a>
-                    <h2 class="p-4 text-white text-lg">Modern Lifestyle</h2>
-                </div>
-                <div class="border border-top-0 border-gray-400 bg-white">
-                    <ul class="flex flex-wrap p-4 text-gray-600">
-                        <li class="w-1/2 mb-2">465 m2</li>
-                        <li class="w-1/2 mb-2">4 Bedrooms</li>
-                        <li class="w-1/2">2 Bathrooms</li>
-                    </ul>
-                    <hr class="my-0">
-                    <h2 class="p-4 text-gray-600 text-lg">$465,000</h2>
-                </div>
-            </div><!-- end listing -->
+            @foreach($listings as $listing)
+                <div class="w-1/3 px-4 listing">
+                    <div class="blue">
+                        <a href="/listing/{{ $listing->id }}">
+                            <img class="object-cover h-48 w-full" src="{{ $listing->images[0]->url }}" alt="">
+                        </a>
+                        <h2 class="p-4 text-white text-lg">{{ $listing->title }}</h2>
+                    </div>
+                    <div class="border border-top-0 border-gray-400 bg-white">
+                        <ul class="flex flex-wrap p-4 text-gray-600">
+                            <li class="w-1/2 mb-2">465 m2</li>
+                            <li class="w-1/2 mb-2">4 Bedrooms</li>
+                            <li class="w-1/2">2 Bathrooms</li>
+                        </ul>
+                        <hr class="my-0">
+                        <h2 class="p-4 text-gray-600 text-lg">{{ $listing->price }}</h2>
+                    </div>
+                </div><!-- end listing -->
+            @endforeach
 
         </div>
     </div><!-- end listings -->

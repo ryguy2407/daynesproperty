@@ -7,7 +7,7 @@
             <div class="slideshowOverlay">
                 <h1 class="text-5xl text-white">{{ $listing->title }}</h1>
             </div>
-            @foreach($images as $image)
+            @foreach($listing->images as $image)
                 <img src="{{ $image->url }}" class="object-cover w-full" alt="" style="height: 600px;">
             @endforeach
         </div>

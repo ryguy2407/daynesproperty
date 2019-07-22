@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    $listings = \App\Listing::where('listing_state', 'current');
+    return view('home')->with('listings', $listings->get());
 });
 
 Route::resource('listing', 'ListingsController');
