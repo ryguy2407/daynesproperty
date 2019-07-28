@@ -85,6 +85,9 @@ class RexRepository implements CRMInterface
 			}
 			$this->syncAllListings($offset);
 		}
+		foreach($result as $listing) {
+			$this->listingsController->store($listing);
+		}
 		return $result;
 	}
 

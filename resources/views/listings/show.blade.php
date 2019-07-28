@@ -15,7 +15,7 @@
     <div class="pager cotnainer mx-auto text-center mb-10"></div>
 
     <div class="listingContent container mx-auto mb-20">
-        <ul class="flex flex-wrap features">
+        <ul class="flex flex-wrap features text-center">
             @if($listing->attributes->landarea)
                 <li class="w-1/4 text-lg"><i class="fas fa-ruler-combined mr-2"></i>{{ $listing->attributes->landarea }} m2</li>
             @endif

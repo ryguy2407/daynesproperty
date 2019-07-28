@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Listing;
 use App\RexRepository\CRMInterface;
+use App\RexRepository\EagleRepository;
 use App\RexRepository\RexRepository;
 use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
