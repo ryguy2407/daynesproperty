@@ -18,7 +18,7 @@
                 <p>Ph: 07 3488 8190</p>
                 <ul class="text-right">
                     <li><a href="#">Submit Property</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><a href="/login">Login</a></li>
                 </ul>
             </div><!-- end flex -->
         </div><!-- end container -->

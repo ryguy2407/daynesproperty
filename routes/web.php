@@ -18,4 +18,6 @@ Route::get('/', function () {
 
 Route::resource('listing', 'ListingsController');
 Route::resource('sync-listings', 'CRMListingsController');
+Auth::routes();
 Route::get('/{id}', 'PagesController@show');
+Route::get('/home', 'HomeController@index')->name('home');
