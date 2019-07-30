@@ -23,7 +23,9 @@ class RexRepository implements CRMInterface
 	 */
 	public function queryAPI($offset = 0)
 	{
-		$token = $this->authenticate();
+		if (! session('token')) {
+			session()->put('token', $token = $this->authenticate());
+		}
 
 		$client = new Client();
 		$response = $client->request( 'GET', 'https://api.rexsoftware.com/rex.php', [
@@ -58,7 +60,7 @@ class RexRepository implements CRMInterface
 						'system_ctime' => 'asc',
 					],
 				],
-				'token'  => $token->result,
+				'token'  => session('token')->result,
 			]
 		]);
 		$resArray = json_decode($response->getBody()->getContents());
@@ -77,6 +79,7 @@ class RexRepository implements CRMInterface
 		$limit = 20;
 		$result = $this->queryAPI($offset)->result->rows;
 		$count = count($result);
+
 		// Keep running until all listings are saved into DB
 		if($count == $limit) {
 			$offset += $limit;
@@ -85,9 +88,12 @@ class RexRepository implements CRMInterface
 			}
 			$this->syncAllListings($offset);
 		}
+
+		// Run this loop when count is less than limit
 		foreach($result as $listing) {
 			$this->listingsController->store($listing);
 		}
+
 		return $result;
 	}
 
