@@ -18,3 +18,4 @@ Route::get('/', function () {
 
 Route::resource('listing', 'ListingsController');
 Route::resource('sync-listings', 'CRMListingsController');
+Route::get('/{id}', 'PagesController@show');
