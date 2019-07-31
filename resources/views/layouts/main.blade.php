@@ -22,7 +22,7 @@
                         <li>
                             <form action="/logout" method="post">
                                 {{ csrf_field() }}
-                                <button>Logout</button>
+                                <button>Hi {{ Auth::user()->name }} | Logout?</button>
                             </form>
                         </li>
                     @else
