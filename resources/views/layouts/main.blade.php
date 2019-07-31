@@ -18,7 +18,16 @@
                 <p>Ph: 07 3488 8190</p>
                 <ul class="text-right">
                     <li><a href="#">Submit Property</a></li>
-                    <li><a href="/login">Login</a></li>
+                    @if(Auth::user())
+                        <li>
+                            <form action="/logout" method="post">
+                                {{ csrf_field() }}
+                                <button>Logout</button>
+                            </form>
+                        </li>
+                    @else
+                        <li><a href="/login">Login</a></li>
+                    @endif
                 </ul>
             </div><!-- end flex -->
         </div><!-- end container -->

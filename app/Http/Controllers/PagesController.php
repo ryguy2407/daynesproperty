@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['show']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -41,19 +47,25 @@ class PagesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Page  $page
+     * @param  \App\Page $page
+     * @param null $slug
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show(Page $page, $slug)
+    public function show(Page $page, $slug = null)
     {
-        //Add a prefix slash so it can be found in db
-        $slug = '/'.$slug;
+        //If a slug is provided then retrieve that page and return 404 if it doesn't exist
+        if($slug) {
+            //Add a prefix slash so it can be found in db
+            $slug = '/' . $slug;
 
-        $page = Page::where('slug', $slug)->first();
+            $page = Page::where( 'slug', $slug )->first();
 
-        if(! $page) {
-            abort(404);
+            if ( ! $page ) {
+                abort( 404 );
+            }
         }
+
         return view('pages.show')->with('page', $page);
     }
 
@@ -65,7 +77,8 @@ class PagesController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        $this->authorize('update', $page);
+        return view('pages.edit')->with('page', $page);
     }
 
     /**
@@ -77,7 +90,7 @@ class PagesController extends Controller
      */
     public function update(Request $request, Page $page)
     {
-        //
+        $this->authorize('update', $page);
     }
 
     /**

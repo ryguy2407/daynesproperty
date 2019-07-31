@@ -16,8 +16,11 @@ Route::get('/', function () {
     return view('home')->with('listings', $listings->get());
 });
 
+Auth::routes();
+
 Route::resource('listing', 'ListingsController');
 Route::resource('sync-listings', 'CRMListingsController');
-Auth::routes();
+Route::resource('page', 'PagesController');
+
 Route::get('/{id}', 'PagesController@show');
 Route::get('/home', 'HomeController@index')->name('home');
