@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePage;
 use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class PagesController extends Controller
 {
@@ -37,12 +39,15 @@ class PagesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param StorePage|Request $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePage $request)
     {
-        //
+        $slug = '/'.Str::slug($request->get('slug'));
+        $page = Page::create($request->all());
+        return redirect(route('page.show', $page->id));
     }
 
     /**
@@ -57,9 +62,6 @@ class PagesController extends Controller
     {
         //If a slug is provided then retrieve that page and return 404 if it doesn't exist
         if($slug) {
-            //Add a prefix slash so it can be found in db
-            $slug = '/' . $slug;
-
             $page = Page::where( 'slug', $slug )->first();
 
             if ( ! $page ) {
@@ -85,13 +87,24 @@ class PagesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Page  $page
+     * @param StorePage|Request $request
+     * @param  \App\Page $page
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Page $page)
+    public function update(StorePage $request, Page $page)
     {
         $this->authorize('update', $page);
+
+        $slug = '/'.Str::slug($request->get('slug'));
+
+        $page->update([
+            'title' => $request->get('title'),
+            'slug' => $slug,
+            'content' => $request->get('content')
+        ]);
+
+        return redirect(route('page.show', $page));
     }
 
     /**

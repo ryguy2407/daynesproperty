@@ -22,5 +22,4 @@ Route::resource('listing', 'ListingsController');
 Route::resource('sync-listings', 'CRMListingsController');
 Route::resource('page', 'PagesController');
 
-Route::get('/{id}', 'PagesController@show');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('{id}', 'PagesController@show');
