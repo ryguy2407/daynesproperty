@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
     <script src="https://cdn.rawgit.com/malsup/cycle2/master/build/jquery.cycle2.min.js"></script>
     <script src="https://kit.fontawesome.com/01abc77b8c.js"></script>
 </head>
-<body>
+<body class="flex flex-col h-full">
 
 <header class="header">
     <div class="topBar py-2">
@@ -53,11 +53,11 @@
     </nav><!-- end main -->
 </header><!-- end header -->
 
-<div class="content">
+<div class="content flex-1">
     @yield('content')
 </div>
 
-<div class="footer">
+<div class="footer w-full pin-b">
     <div class="container mx-auto py-10" style="text-align: center;">
         <img src="/images/DP-icon-300x119.png" style="width: 50px;display: inline-block;">
         <p>&copy; 2019 Daynes Property.</p>
