@@ -12,7 +12,10 @@ class PagePolicy
 
     public function before($user, $ability)
     {
-
+        if($user->id === 1)
+        {
+            return true;
+        }
     }
 
     /**
@@ -58,11 +61,6 @@ class PagePolicy
      */
     public function update(User $user, Page $page)
     {
-        if($user->id === 1)
-        {
-            return true;
-        }
-
         return false;
     }
 
@@ -75,7 +73,7 @@ class PagePolicy
      */
     public function delete(User $user, Page $page)
     {
-        //
+        return false;
     }
 
     /**
@@ -87,7 +85,7 @@ class PagePolicy
      */
     public function restore(User $user, Page $page)
     {
-        //
+        return false;
     }
 
     /**
@@ -99,6 +97,6 @@ class PagePolicy
      */
     public function forceDelete(User $user, Page $page)
     {
-        //
+        return false;
     }
 }

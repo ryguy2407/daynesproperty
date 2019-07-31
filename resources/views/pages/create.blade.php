@@ -6,7 +6,7 @@
 
     <div class="listingContent container mx-auto mb-20">
         <div class="bg-white bg-white p-12 mt-10">
-            Edit page screen
+            Create page screen
         </div>
     </div>
 

@@ -30,7 +30,8 @@ class PagesController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', Page::class);
+        return view('pages.create');
     }
 
     /**
